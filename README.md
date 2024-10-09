@@ -243,3 +243,7 @@ Set-ExecutionPolicy Unrestricted -Scope Process
 ### Acknowledgements
 
 This is based on [Win11Debloat](https://github.com/Raphire/Win11Debloat) by Jeffrey [(@Raphire](https://github.com/Raphire)).
+
+### License
+
+[The Beer-Ware License (Revision 42)](LICENSE)
