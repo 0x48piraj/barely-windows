@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloatware Removal Config Tool</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #1c1c1c;
+            color: #fff;
+            padding: 20px;
+        }
+        h1 { text-align: center; color: #fff; }
+        h3 { font-size: 1.2em; margin: 15px 0; color: #fff; }
+        form {
+            background: #2c2c2c;
+            border-radius: 5px;
+            padding: 20px;
+            max-width: 500px;
+            margin: auto;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        .button-container { display: flex; justify-content: center; margin-top: 20px; }
+        .button-container button { margin: 0 10px; }
+        button { background-color: #333; color: white; border: none; }
+        button:hover { background-color: #444; }
+        pre { background: #333; border-radius: 5px; padding: 10px; overflow: auto; font-size: 14px; margin-top: 10px; }
+        .windows-selection { display: flex; justify-content: space-around; margin: 20px 0; }
+        .modal { background-color: #1a1a1a!important; color: #fff; }
+        .modal-footer { background-color: #1a1a1a!important; }
+        .modal-content h4 { color: #fff; }
+    </style>    
+</head>
+<body>
+    <h1>Barely Windows</h1>
+    
+    <form id="configForm" class="z-depth-2">
+        <h3>Select OS</h3>
+        <div class="windows-selection">
+            <button type="button" id="windows10" class="btn">Windows 10</button>
+            <button type="button" id="windows11" class="btn">Windows 11</button>
+        </div>
+
+        <h3>Base Configuration</h3>
+        <!-- Checkboxes -->
+        <label><input type="checkbox" id="removeBloatware" /><span>Remove default selection of pre-installed bloatware apps</span></label>
+        <label><input type="checkbox" id="disableTelemetry" /><span>Turn off telemetry, diagnostics and app-launch tracking / targeted ads.</span></label>
+        <label><input type="checkbox" id="disableAds" /><span>Opt out of tips, tricks, suggestions and ads in start, settings, notifications and more.</span></label>
+        <label><input type="checkbox" id="disableBing" /><span>Disable Bing web search & Cortana from search</span></label>
+        <label id="windows11Options" style="display:none;">
+            <input type="checkbox" id="disableCopilot" />
+            <span>Disable Windows Copilot (Windows 11 build 22621+)</span>
+        </label>
+        <label id="windows10Options" style="display:none;">
+            <input type="checkbox" id="hide3DObjects" />
+            <span>Hide the 3D objects folder under 'This PC' (Windows 10 only)</span>
+        </label>
+        <label><input type="checkbox" id="showFileExtensions" /><span>Show file extensions for known file types</span></label>
+        <label><input type="checkbox" id="disableWidgets" /><span>Disable the widget service & hide from the taskbar</span></label>
+        <label><input type="checkbox" id="hideChat" /><span>Hide the Chat (Meet Now) from the taskbar</span></label>
+
+        <h3>Gaming Performance</h3>
+        <label><input type="checkbox" id="fpsBoost" /><span>Apply FPS boosting optimizations</span></label>
+
+        <h3>Output:</h3>
+        <pre id="output"></pre>
+    </form>
+
+    <div class="button-container">
+        <button id="generateConfig" class="btn">Generate Config</button>
+        <button id="downloadConfig" class="btn" style="display: none;">Download Config</button>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="errorModal" class="modal">
+        <div class="modal-content">
+            <h4>Error</h4>
+            <p id="errorText"></p>
+        </div>
+        <div class="modal-footer">
+            <button class="modal-close btn">Close</button>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="controller.js"></script>
+</body>
+</html>

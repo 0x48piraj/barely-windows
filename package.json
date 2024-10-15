@@ -1,0 +1,27 @@
+{
+  "name": "barely-windows",
+  "version": "1.0.0",
+  "description": "Say goodbye to the clutter and hello to performance with Barely Windows, the intuitive web-based GUI editor designed to streamline your Windows 10 and 11 experience. Effortlessly remove pesky pre-installed bloatware and disable intrusive telemetry, all while boosting your gaming performance with our powerful FPS optimization tools.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "build": "tsc && copy src\\index.html dist\\",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0x48piraj/barely-windows.git"
+  },
+  "keywords": [],
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/0x48piraj/barely-windows/issues"
+  },
+  "homepage": "https://github.com/0x48piraj/barely-windows#readme",
+  "devDependencies": {
+    "@types/materialize-css": "^1.0.14",
+    "typescript": "^5.6.3"
+  }
+}
