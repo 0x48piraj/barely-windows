@@ -14,6 +14,49 @@
         }
         h1 { text-align: center; color: #fff; }
         h3 { font-size: 1.2em; margin: 15px 0; color: #fff; }
+        select {
+        -webkit-appearance:none;
+        -moz-appearance:none;
+        -ms-appearance:none;
+        appearance:none;
+        outline:0;
+        box-shadow:none;
+        border:0!important;
+        display: block;
+        background: #5c6664;
+        background-image: none;
+        flex: 1;
+        padding: 0 .5em;
+        color:#fff;
+        cursor:pointer;
+        font-size: 1em;
+        font-family: 'Open Sans', sans-serif;
+        }
+        select::-ms-expand {
+        display: none;
+        }
+        .bloat-container {
+        position: relative;
+        display: flex;
+        height: 3em;
+        line-height: 3;
+        background: #5c6664;
+        overflow: hidden;
+        border-radius: .25em;
+        }
+        .bloat-container::after {
+        content: '\25BC';
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 0 1em;
+        cursor:pointer;
+        pointer-events:none;
+        transition:.25s all ease;
+        }
+        .bloat-container:hover::after {
+        color: #26a69a;
+        }
         form {
             background: #2c2c2c;
             border-radius: 5px;
@@ -60,6 +103,16 @@
         <label><input type="checkbox" id="showFileExtensions" /><span>Show file extensions for known file types</span></label>
         <label><input type="checkbox" id="disableWidgets" /><span>Disable the widget service & hide from the taskbar</span></label>
         <label><input type="checkbox" id="hideChat" /><span>Hide the Chat (Meet Now) from the taskbar</span></label>
+
+        <h3>Select Bloatware Apps to Uninstall</h3>
+        <div class="bloat-container">
+            <select name="appListContainer" id="appListContainer">
+                <option selected disabled>Choose a pre-configuration</option>
+               <option value="safe">Safe: Removes only essential bloatware</option>
+               <option value="scrub">Scrub: Removes core bloatware, including some pre-installed apps</option>
+               <option value="experimental">Experimental: Aggressive removal of all suggested bloatware</option>
+            </select>
+         </div>
 
         <h3>Gaming Performance</h3>
         <label><input type="checkbox" id="fpsBoost" /><span>Apply FPS boosting optimizations</span></label>

@@ -210,7 +210,7 @@ The default selection applies the changes that are recommended for most users, e
 
 Download & run the script automatically via PowerShell. All traces of the script are removed automatically after execution.
 
-1. Open PowerShell as an administrator in the same folder where you downloaded the `bw_config.json` from the [web-app](https://github.com/0x48piraj/barely-windows).
+1. Open PowerShell as an administrator in the same folder where you downloaded the `bw.config.json` from the [web-app](https://github.com/0x48piraj/barely-windows).
 2. Copy and paste the code below into PowerShell, press enter to run the script:
 
 ```PowerShell
@@ -225,7 +225,7 @@ Download & run the script automatically via PowerShell. All traces of the script
 Manually download the script & run the script via PowerShell. Only recommended for advanced users.
 
 1. [Download the latest version of the script](https://github.com/0x48piraj/barely-windows/archive/master.zip), and extract the .ZIP file to your desired location.
-2. Navigate to the `barely-windows` folder, copy the `bw_config.json` from the [web-app](https://github.com/0x48piraj/barely-windows) to the same folder.
+2. Navigate to the `barely-windows` folder, copy the `bw.config.json` from the [web-app](https://github.com/0x48piraj/barely-windows) to the same folder.
 3. Open PowerShell as an administrator in the same folder.
 4. Temporarily enable PowerShell execution by entering the following command:
 
