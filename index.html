@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Barely Windows</title>
+    <title>Bloatware Removal Config Tool</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
     <style>
         body {
@@ -12,18 +12,51 @@
             color: #fff;
             padding: 20px;
         }
-    
-        h1 {
-            text-align: center;
-            color: #fff;
+        h1 { text-align: center; color: #fff; }
+        h3 { font-size: 1.2em; margin: 15px 0; color: #fff; }
+        select {
+        -webkit-appearance:none;
+        -moz-appearance:none;
+        -ms-appearance:none;
+        appearance:none;
+        outline:0;
+        box-shadow:none;
+        border:0!important;
+        display: block;
+        background: #5c6664;
+        background-image: none;
+        flex: 1;
+        padding: 0 .5em;
+        color:#fff;
+        cursor:pointer;
+        font-size: 1em;
+        font-family: 'Open Sans', sans-serif;
         }
-
-        h3 {
-            font-size: 1.2em; /* Adjust the size to your preference */
-            margin: 15px 0;  /* Control spacing above and below */
-            color: #fff;     /* Maintain the text color */
+        select::-ms-expand {
+        display: none;
         }
-
+        .bloat-container {
+        position: relative;
+        display: flex;
+        height: 3em;
+        line-height: 3;
+        background: #5c6664;
+        overflow: hidden;
+        border-radius: .25em;
+        }
+        .bloat-container::after {
+        content: '\25BC';
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 0 1em;
+        cursor:pointer;
+        pointer-events:none;
+        transition:.25s all ease;
+        }
+        .bloat-container:hover::after {
+        color: #26a69a;
+        }
         form {
             background: #2c2c2c;
             border-radius: 5px;
@@ -32,61 +65,21 @@
             margin: auto;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
-
-        .button-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px; /* Adjust spacing as needed */
-        }
-
-        .button-container button {
-            margin: 0 10px; /* Adjust the spacing between buttons */
-        }
-
-        button {
-            background-color: #333;
-            color: white;
-            border: none;
-        }
-    
-        button:hover {
-            background-color: #444;
-        }
-    
-        pre {
-            background: #333;
-            border-radius: 5px;
-            padding: 10px;
-            overflow: auto;
-            font-size: 14px;
-            margin-top: 10px;
-        }
-    
-        .windows-selection {
-            display: flex;
-            justify-content: space-around;
-            margin: 20px 0;
-        }
-    
-        .modal {
-            background-color: #1a1a1a!important;
-            color: #fff;
-        }
-    
-        .modal-footer {
-            background-color: #1a1a1a!important;
-        }
-    
-        .modal-content h4 {
-            color: #fff;
-        }
+        .button-container { display: flex; justify-content: center; margin-top: 20px; }
+        .button-container button { margin: 0 10px; }
+        button { background-color: #333; color: white; border: none; }
+        button:hover { background-color: #444; }
+        pre { background: #333; border-radius: 5px; padding: 10px; overflow: auto; font-size: 14px; margin-top: 10px; }
+        .windows-selection { display: flex; justify-content: space-around; margin: 20px 0; }
+        .modal { background-color: #1a1a1a!important; color: #fff; }
+        .modal-footer { background-color: #1a1a1a!important; }
+        .modal-content h4 { color: #fff; }
     </style>    
 </head>
 <body>
     <h1>Barely Windows</h1>
     
     <form id="configForm" class="z-depth-2">
-
         <h3>Select OS</h3>
         <div class="windows-selection">
             <button type="button" id="windows10" class="btn">Windows 10</button>
@@ -94,23 +87,11 @@
         </div>
 
         <h3>Base Configuration</h3>
-        
-        <label>
-            <input type="checkbox" id="removeBloatware" />
-            <span>Remove default selection of pre-installed bloatware apps</span>
-        </label>
-        <label>
-            <input type="checkbox" id="disableTelemetry" />
-            <span>Turn off telemetry, diagnostics and app-launch tracking / targeted ads.</span>
-        </label>
-        <label>
-            <input type="checkbox" id="disableAds" />
-            <span>Opt out of tips, tricks, suggestions and ads in start, settings, notifications and more.</span>
-        </label>
-        <label>
-            <input type="checkbox" id="disableBing" />
-            <span>Disable Bing web search & Cortana from search</span>
-        </label>
+        <!-- Checkboxes -->
+        <label><input type="checkbox" id="removeBloatware" /><span>Remove default selection of pre-installed bloatware apps</span></label>
+        <label><input type="checkbox" id="disableTelemetry" /><span>Turn off telemetry, diagnostics and app-launch tracking / targeted ads.</span></label>
+        <label><input type="checkbox" id="disableAds" /><span>Opt out of tips, tricks, suggestions and ads in start, settings, notifications and more.</span></label>
+        <label><input type="checkbox" id="disableBing" /><span>Disable Bing web search & Cortana from search</span></label>
         <label id="windows11Options" style="display:none;">
             <input type="checkbox" id="disableCopilot" />
             <span>Disable Windows Copilot (Windows 11 build 22621+)</span>
@@ -119,24 +100,22 @@
             <input type="checkbox" id="hide3DObjects" />
             <span>Hide the 3D objects folder under 'This PC' (Windows 10 only)</span>
         </label>
-        <label>
-            <input type="checkbox" id="showFileExtensions" />
-            <span>Show file extensions for known file types</span>
-        </label>
-        <label>
-            <input type="checkbox" id="disableWidgets" />
-            <span>Disable the widget service & hide from the taskbar</span>
-        </label>
-        <label>
-            <input type="checkbox" id="hideChat" />
-            <span>Hide the Chat (Meet Now) from the taskbar</span>
-        </label>
+        <label><input type="checkbox" id="showFileExtensions" /><span>Show file extensions for known file types</span></label>
+        <label><input type="checkbox" id="disableWidgets" /><span>Disable the widget service & hide from the taskbar</span></label>
+        <label><input type="checkbox" id="hideChat" /><span>Hide the Chat (Meet Now) from the taskbar</span></label>
+
+        <h3>Select Bloatware Apps to Uninstall</h3>
+        <div class="bloat-container">
+            <select name="appListContainer" id="appListContainer">
+                <option selected disabled>Choose a pre-configuration</option>
+               <option value="safe">Safe: Removes only essential bloatware</option>
+               <option value="scrub">Scrub: Removes core bloatware, including some pre-installed apps</option>
+               <option value="experimental">Experimental: Aggressive removal of all suggested bloatware</option>
+            </select>
+         </div>
 
         <h3>Gaming Performance</h3>
-        <label>
-            <input type="checkbox" id="fpsBoost" />
-            <span>Apply FPS boosting optimizations</span>
-        </label>
+        <label><input type="checkbox" id="fpsBoost" /><span>Apply FPS boosting optimizations</span></label>
 
         <h3>Output:</h3>
         <pre id="output"></pre>
@@ -157,13 +136,7 @@
             <button class="modal-close btn">Close</button>
         </div>
     </div>
-
-    <script src="components/js/controller.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script>
-        // Initialize the modal
-        const modalElem = document.querySelector('#errorModal');
-        const modalInstance = M.Modal.init(modalElem);
-    </script>
+    <script src="components/js/controller.js"></script>
 </body>
 </html>
