@@ -7,7 +7,7 @@ With just a few clicks, you can declutter and enhance your system, ensuring it r
 Barely Windows isn’t just for everyday users; it’s packed with features that system administrators will love! Take advantage of Windows Audit mode support and run scripts seamlessly without requiring any user input during runtime. Whether you’re managing multiple systems or fine-tuning individual setups, Barely Windows offers the flexibility and control you need to optimize your Windows environment efficiently. Windows 10 and Windows 11 often come with privacy concerns and security vulnerabilities right out of the box. Recognizing this, leading organizations like [Microsoft](https://microsoft.com), [Cyber.mil](https://public.cyber.mil), the [Department of Defense](https://dod.gov), and the [National Security Agency](https://www.nsa.gov/) have outlined essential configuration changes to lock down and harden these operating systems. Barely Windows is designed to automate these critical recommendations, ensuring your system is fortified against potential threats.
 
 > [!Tip]
-> All of the changes made by **Barely Windows** can easily be reverted and almost all of the apps can be reinstalled through the Microsoft Store. A full guide on how to revert changes can be found [here](https://github.com/0x48piraj/barely-windows/REVERT.md).
+> All of the changes made by **Barely Windows** can easily be reverted and almost all of the apps can be reinstalled through the Microsoft Store. A full guide on how to revert changes can be found [here](REVERT.md).
 
 
 #### Did this tool help you?
@@ -18,28 +18,35 @@ Barely Windows isn’t just for everyday users; it’s packed with features that
 
 ## Features
 
+### Performance
+
 #### Bloatware Removal
 
-- Remove a wide variety of bloatware apps.
+- Remove a wide range of bloatware apps, tailored to your preferences, for improved performance and efficiency.
 
-#### Telemetry, Tracking & Suggested Content
+#### Maximize Your Gaming Performance on Windows
+
+- FPS-Boosting Strategies & Techniques
+- Powerful Performance Tuning Settings
+- Storage Optimization Tricks for Faster Load Times
+
+### Privacy
+
+#### Disable Telemetry and Opt-Out of Personalized Tracking and Content Suggestions
 
 - Disable telemetry, diagnostic data, activity history, app-launch tracking & targeted ads.
 - Disable tips, tricks, suggestions and ads in start, settings, notifications, File Explorer, and on the lockscreen.
 
-#### Bing Web Search, Copilot & More
+#### Disable Bing Web Search, Copilot & More
 
 - Disable & remove Bing web search & Cortana from Windows search.
 - Disable & remove Windows Copilot. (Windows 11 only)
 - Disable Windows Recall snapshots. (Windows 11 only)
 
-#### File Explorer
+#### Miscellaneous
 
 - Show hidden files, folders and drives.
 - Show file extensions for known file types.
-
-#### Taskbar
-
 - Align taskbar icons to the left. (Windows 11 only)
 - Hide or change the search icon/box on the taskbar. (Windows 11 only)
 - Hide the taskview button from the taskbar. (Windows 11 only)
@@ -210,11 +217,11 @@ The default selection applies the changes that are recommended for most users, e
 
 Download & run the script automatically via PowerShell. All traces of the script are removed automatically after execution.
 
-1. Open PowerShell as an administrator in the same folder where you downloaded the `bw.config.json` from the [web-app](https://github.com/0x48piraj/barely-windows).
+1. Open PowerShell as an administrator in the same folder where you downloaded the `bw.config.json` from the [web-app](https://0x48piraj.github.io/barely-windows/).
 2. Copy and paste the code below into PowerShell, press enter to run the script:
 
 ```PowerShell
-& ([scriptblock]::Create((irm "https://bw.piyushraj.org/")))
+& ([scriptblock]::Create((irm "https://raw.githubusercontent.com/0x48piraj/barely-windows/refs/heads/master/barely-windows.ps1")))
 ```
 
 3. Wait for the command to automatically download the latest **Barely Windows**.
@@ -225,7 +232,7 @@ Download & run the script automatically via PowerShell. All traces of the script
 Manually download the script & run the script via PowerShell. Only recommended for advanced users.
 
 1. [Download the latest version of the script](https://github.com/0x48piraj/barely-windows/archive/master.zip), and extract the .ZIP file to your desired location.
-2. Navigate to the `barely-windows` folder, copy the `bw.config.json` from the [web-app](https://github.com/0x48piraj/barely-windows) to the same folder.
+2. Navigate to the `barely-windows` folder, copy the `bw.config.json` from the [web-app](https://0x48piraj.github.io/barely-windows/) to the same folder.
 3. Open PowerShell as an administrator in the same folder.
 4. Temporarily enable PowerShell execution by entering the following command:
 
@@ -235,14 +242,14 @@ Set-ExecutionPolicy Unrestricted -Scope Process
 5. Now run the script by entering the following command:
 
 ```PowerShell
-.\launcher.ps1
+.\barely-windows.ps1
 ```
 
 6. Profit!
 
 ### Acknowledgements
 
-This is based on [Win11Debloat](https://github.com/Raphire/Win11Debloat) by Jeffrey [(@Raphire](https://github.com/Raphire)).
+This project is based on [Win11Debloat](https://github.com/Raphire/Win11Debloat) by Jeffrey [(@Raphire](https://github.com/Raphire)).
 
 ### License
 
